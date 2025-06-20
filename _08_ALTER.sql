@@ -68,8 +68,10 @@ GO
 -- Update the Subcategory column as Default that is NOT NULL
 
 -- Step 1: First update all existing NULL values to a default value
+/*
 UPDATE Inventory.Furniture SET Subcategory = 'General' WHERE Subcategory IS NULL;
 GO
+*/      -- Please uncomment and run the whole code
 
 -- Step 2: Add a default constraint for new rows
 ALTER TABLE Inventory.Furniture ADD CONSTRAINT DF_Furniture_Subcategory DEFAULT 'General' FOR Subcategory;

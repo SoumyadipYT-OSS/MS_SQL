@@ -60,3 +60,33 @@ GO
 SELECT * FROM Inventory.Furniture;
 PRINT 'Column Subcategory added successfully.';
 GO
+
+
+
+
+
+-- Update the Subcategory column as Default that is NOT NULL
+
+-- Step 1: First update all existing NULL values to a default value
+UPDATE Inventory.Furniture SET Subcategory = 'General' WHERE Subcategory IS NULL;
+GO
+
+-- Step 2: Add a default constraint for new rows
+ALTER TABLE Inventory.Furniture ADD CONSTRAINT DF_Furniture_Subcategory DEFAULT 'General' FOR Subcategory;
+GO
+
+-- Step 3: Alter the column to be NOT NULL
+ALTER TABLE Inventory.Furniture ALTER COLUMN Subcategory VARCHAR(50) NOT NULL;
+GO
+
+-- Verify the changes
+SELECT COLUMN_NAME, IS_NULLABLE, COLUMN_DEFAULT FROM INFORMATION_SCHEMA.COLUMNS
+WHERE 
+    TABLE_SCHEMA = 'Inventory' AND 
+    TABLE_NAME = 'Furniture' AND
+    COLUMN_NAME = 'Subcategory';
+GO
+
+-- Test with a quick select
+SELECT * FROM Inventory.Furniture;
+GO

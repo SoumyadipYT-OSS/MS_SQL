@@ -145,7 +145,7 @@ When a SQL query is submitted:
 SELECT Name, Department
 FROM Employees
 WHERE Department = 'IT';
-``
+```
 
 ---
 

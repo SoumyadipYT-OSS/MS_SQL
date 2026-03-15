@@ -96,5 +96,5 @@ This query retrieves employees who work in the IT department.
 
 ### SQL Server Architecture 
 <div>
-    <img src="../Images/SqlServerArchitecture.png" alt="SQL Server Architecture PNG" width=600 height=450 />
+    <img src="../Images/SqlServerArchitecture.png" alt="SQL Server Architecture PNG" width=800 height=550 />
 </div>
